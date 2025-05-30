@@ -1,0 +1,271 @@
+body {
+    overflow: hidden;
+  }
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #132239;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 55px 0px;
+    transition: width 0.25s;
+    animation: 1s linear 0s infinite normal none running ripples;
+
+    /* background-color: rgba(20,37,61,255); */
+
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    animation: slideFadeInLeft 0.8s ease-out both;
+  }
+ 
+
+  .aide-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+  
+  .profile-pic {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sidebar h1 {
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
+  }
+  
+  .sidebar h2 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .menu {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* gap: 15px; */
+}
+
+.divider {
+    margin-left: 38%;
+    width: 70px;
+    background-image: linear-gradient(90deg, #132239, #080f21);
+    background-size: 200% 200%;
+    background-position: 50% 80%;
+    transition: 0.5s;
+}
+  
+  .about {
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.4;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .social-links a {
+    color: #00ffe0;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Main content area */
+  .content {
+    background-color: #080f21;
+    /* margin-left: 40%; same as .sidebar width */
+    flex-grow: 1;
+    overflow-x: hidden;
+    animation: slideFadeInRight 0.8s ease-out both;
+    animation-delay: 0.3s;
+  }
+
+
+  
+/* Background and global layout */
+:host {
+    display: block;
+    background: linear-gradient(180deg, #132239, #080f21);
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.6;
+    letter-spacing: 0.02rem;
+    min-height: 100vh;
+  }
+  
+  /* Link style */
+  a {
+    color: #00ffe0;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sections with fade-in animation */
+  .section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Skills */
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .skills button {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  
+  .skills button.active {
+    background-color: #00ffe0;
+    color: #000;
+  }
+  
+  .skills button:hover {
+    background-color: #00ffe0aa;
+    color: #000;
+  }
+  
+  /* Experience Cards */
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .experience-card {
+    padding: 1rem;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    transition: border 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .experience-card.highlight {
+    border-color: #00f0ff;
+    transform: scale(1.02);
+  }
+  
+  /* Project Cards (if used) */
+  .project-card {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent;
+  }
+  
+  .project-card:hover {
+    border-color: #00ffe0;
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+  
+    .content {
+      padding: 1rem;
+      margin-left: 0;
+    }
+  }
+/* about me  */
+  .section p {
+    font-size: 1rem;
+    max-width: 800px;
+    color: #ccc;
+  }
+
+  #about {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  
+  /* Add fade+slide animations */
+@keyframes slideFadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideFadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

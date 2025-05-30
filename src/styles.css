@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* Reset default margin/padding */
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+
