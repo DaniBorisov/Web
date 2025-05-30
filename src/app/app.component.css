@@ -8,8 +8,9 @@ body {
   }
   
   /* Sidebar */
+  /* #132239 */
   .sidebar {
-    background-color: #132239;
+    background-color:red;
     position: fixed;
     top: 0;
     height: 100vh;
